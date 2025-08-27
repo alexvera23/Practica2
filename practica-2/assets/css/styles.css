@@ -1,65 +1,279 @@
 :root {
-    --blanco: #ffffff;
-    --oscuro: #212121;
-    --primario: #FFC107;
-    --secundario: #0097a7;
-    --gris: #757575;
+--blanco: #ffffff;
+ --oscuro: #212121;
+ --primario: #FFC107;
+ --secundario: #0097a7;
+ --gris: #757575;
 }
 
 html {
-    font-size: 62.5%;
+ font-size: 62.5%;
+ box-sizing: border-box;
+ scroll-snap-type: y mandatory;
+}
+*, *::before,*::after{
+ box-sizing: inherit;
 }
 
 body {
-    font-size: 16px; /* 1rem = 10px  se adapta mejor a pantallas*/
-    font-family: 'Krub', sans-serif;
+ font-size: 16px; /* 1rem = 10px  se adapta mejor a pantallas*/
+ font-family: 'Krub', sans-serif;
+ background-image: linear-gradient(to top,#DFE9F3 0%, var(--blanco)100%);
 }
 
-.titulo { 
-    text-align: center;
-    font-size: 3.8.rem;
+.sombra{
+ background-color: var(--blanco);
+ padding: 2rem; /* Added padding to the shadow container */
+ border-radius: 1rem;
+  box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48); /* Added box shadow */
+}
 
+h1{
+font-size: 3.8rem; /* Corrected typo 3.8.rem to 3.8rem */
+}
+h2{
+font-size: 2.8rem; /* Corrected typo 2.8.rem to 2.8rem */
+}
+
+h3{
+     font-size: 1.8rem;
+}
+
+.titulo {
+     text-align: center;
 }
 
 .titulo span {
-    font-size: 2rem; /*se mas especifico, ya que tomara el que mejor especifico*/
+ font-size: 2rem;
 }
 
 .contenedor {
-    max-width: 120rem;
-    margin: 0 auto;
+ max-width: 120rem;
+ margin: 0 auto;
+}
+
+.boton{
+ background-color: var(--secundario);
+ color: var(--blanco);
+ padding: 1rem 3rem;
+ margin-top: 1rem;
+ font-size: 2rem;
+ text-decoration: none;
+ text-transform: uppercase;
+ font-weight: bold;
+ border-radius: .5rem;
+ width: 90%;
+ text-align: center;
 }
 
 .nav-bg {
-    background-color: var(--secundario);
+     background-color: var(--secundario);
 }
 .navegacion-principal {
-    display:flex; 
-    flex-direction: column;
-    justify-content: space-between;
+display:flex;
+ flex-direction: column;
+ justify-content: space-between;
 }
 
 @media (min-width: 480px) {
-    .navegacion-principal {
-        flex-direction: row;
-    }
+ .navegacion-principal {
+ flex-direction: row;
+ }
+ .boton{
+ width: auto;
+ }
 }
 
 .navegacion-principal a {
-    color: var(--blanco);
-    text-decoration: none;
-    font-size: 2rem;
-    font-weight: 700;
-      padding: 1rem;
+ display: block;
+ text-align: center;
+ color: var(--blanco);
+ text-decoration: none;
+ font-size: 2rem;
+ font-weight: 700;
+ padding: 1rem;
+}
+@media (min-width: 768px) {
+ .navegacion-principal{
+ flex-direction: row;
+ justify-content: space-between;
+ }
+
 }
 
 .navegacion-principal a:hover {
-    background-color: var(--primario);
-    color: var(--oscuro);
+ background-color: var(--primario);
+ color: var(--oscuro);
 }
 
 
-@media (min-width: 480px) {
-    h1
-   
+@media (min-width: 1400px) {
+ .navegacion-principal{
+ flex-direction: row;
+ }
+
+}
+
+@media (min-width: 1140px) {
+ .navegacion-principal{
+ flex-direction: row;
+ }
+
+}
+.hero{
+ background-image: url(../img/hero.jpg);
+ background-repeat: no-repeat;
+ background-size: cover;
+ height: 450px;
+ margin-bottom: 2rem;
+ position: relative;
+
+
+}
+
+.contenido-hero{
+ 
+ background-color: rgba(0, 0, 0, .7);
+ 
+ height: 100%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p{
+ color: var(--blanco);
+}
+.ubicacion{
+ display: flex;
+ align-items: flex-end;
+}
+
+.servicios-container { /* Renamed 'Servicios' to 'servicios-container' to avoid conflict */
+ display: flex; /* Use flexbox for layout */
+ justify-content: space-around; /* Distribute items with space around them */
+ gap: 2rem; /* Gap between service cards */
+ margin-top: 2rem; /* Space above the service section */
+ flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.servicio {
+ flex: 1; /* Allow items to grow and shrink */
+ min-width: 280px; /* Minimum width for service cards */
+ background-color: var(--blanco);
+ padding: 2rem;
+ border-radius: 1rem;
+ text-align: center;
+ /* Added box shadow for the individual service cards */
+ box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.2);
+ 
+}
+
+
+.servicio h3 {
+ color: var(--secundario);
+ margin-bottom: 1.5rem;
+}
+
+.servicio .iconos {
+ height: 15rem; /* Set a fixed height for the circle container */
+ width: 15rem; /* Set a fixed width for the circle container */
+ background-color: var(--primario);
+ border-radius: 50%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin: 0 auto 2rem auto; /* Center the circle and add margin below it */
+}
+
+.servicio .iconos svg {
+ width: 4rem; /* Adjusted SVG size */
+ height: 4rem; /* Adjusted SVG size */
+ stroke: var(--oscuro); /* Set icon color */
+}
+
+/* Specific adjustments for "Aplicaciones Web" to center icons */
+.servicio.aplicaciones .iconos {
+    display: flex;
+    flex-direction: column; /* Stack icons vertically */
+    justify-content: center;
+    align-items: center;
+}
+
+.servicio.aplicaciones .iconos svg:first-child {
+    margin-bottom: 0.5rem; /* Add space between the two icons */
+}
+
+/* Contact form styles - added for consistency with the design */
+.contacto .formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100%); /* Use 60rem or 100% of available width */
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.contacto{
+    text-align: center;
+}
+.contacto .formulario fieldset {
+    border: none;
+    padding: 0;
+}
+
+.contacto .formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+.campos {
+    margin-bottom: 1rem;
+}
+
+.campos label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block; /* Make label a block element */
+}
+
+.campos input:not([type="submit"]),
+.campos textarea {
+    padding: 1rem;
+    border: none;
+    border-radius: .5rem;
+    width: 100%;
+}
+
+.campos textarea {
+    height: 12rem;
+}
+
+.enviar .boton {
+    width: 100%;
+    border: none;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--oscuro);
+    color: var(--blanco);
+    margin-top: 2rem;
+}
+
+.contenedor-campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    column-gap: 1rem; 
+}
+
+.campos:nth-child(3), 
+.campos:nth-child(4) {
+    grid-column: 1 / 3; 
 }
